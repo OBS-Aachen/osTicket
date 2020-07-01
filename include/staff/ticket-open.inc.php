@@ -359,6 +359,20 @@ if ($_POST)
         ?>
         </tbody>
         <tbody>
+            <tr>
+                <td colspan="2">
+                    <p style="text-align:center;">
+                        <input type="submit" name="submit" value="<?php echo _P('action-button', 'Open');?>">
+                        <input type="reset"  name="reset"  value="<?php echo __('Reset');?>">
+                        <input type="button" name="cancel" value="<?php echo __('Cancel');?>" onclick="javascript:
+                            $(this.form).find('textarea.richtext')
+                              .redactor('draft.deleteDraft');
+                            window.location.href='tickets.php'; " />
+                    </p>
+                 </td>
+            </tr>
+        </tbody>
+        <tbody>
         <?php
         //is the user allowed to post replies??
         if ($thisstaff->getRole()->hasPerm(Ticket::PERM_REPLY)) { ?>
@@ -474,14 +488,6 @@ print $response_form->getField('attachments')->render();
         </tr>
     </tbody>
 </table>
-<p style="text-align:center;">
-    <input type="submit" name="submit" value="<?php echo _P('action-button', 'Open');?>">
-    <input type="reset"  name="reset"  value="<?php echo __('Reset');?>">
-    <input type="button" name="cancel" value="<?php echo __('Cancel');?>" onclick="javascript:
-        $(this.form).find('textarea.richtext')
-          .redactor('plugin.draft.deleteDraft');
-        window.location.href='tickets.php'; " />
-</p>
 </form>
 <script type="text/javascript">
 $(function() {
