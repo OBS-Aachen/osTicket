@@ -781,18 +781,19 @@ if ($errors['err'] && isset($_POST['a'])) {
 >
     <ul class="tabs" id="response-tabs">
         <?php
+        if (!($blockReply)) { ?>
+            <li><a href="#note" <?php
+                echo isset($errors['postnote']) ?  'class="error"' : ''; ?>
+                   id="post-note-tab"><?php echo __('Post Internal Note');?></a></li>
+            <?php
+        }
         if ($role->hasPerm(Ticket::PERM_REPLY) && !($blockReply)) { ?>
         <li class="active <?php
             echo isset($errors['reply']) ? 'error' : ''; ?>"><a
             href="#reply" id="post-reply-tab"><?php echo __('Post Reply');?></a></li>
         <?php
         }
-        if (!($blockReply)) { ?>
-        <li><a href="#note" <?php
-            echo isset($errors['postnote']) ?  'class="error"' : ''; ?>
-            id="post-note-tab"><?php echo __('Post Internal Note');?></a></li>
-        <?php
-        } ?>
+        ?>
     </ul>
     <?php
     if ($role->hasPerm(Ticket::PERM_REPLY) && !($blockReply)) {
