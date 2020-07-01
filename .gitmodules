@@ -1,4 +1,0 @@
-[submodule "osTicket"]
-    branch = develop
-	path = osTicket
-	url = https://github.com/osTicket/osTicket
