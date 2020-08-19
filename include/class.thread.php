@@ -402,9 +402,8 @@ implements Searchable {
           $entries->filter($visibility);
         }
 
-        $entries->order_by('-id');
-        if ($options['sort'] && !strcasecmp($options['sort'], 'ASC'))
-            $entries->order_by('id');
+        if ($options['sort'] && !strcasecmp($options['sort'], 'DESC'))
+            $entries->order_by('-id');
 
         // Precache all the attachments on this thread
         AttachmentFile::objects()->filter(array(
