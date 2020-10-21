@@ -1031,7 +1031,7 @@ if ($errors['err'] && isset($_POST['a'])) {
                         break;
                     } ?>
                     <input type="hidden" name="draft_id" value=""/>
-                    <textarea name="response" id="response" cols="50"
+                    <textarea name="response" id="response"
                         data-signature-field="signature" data-dept-id="<?php echo $dept->getId(); ?>"
                         data-signature="<?php
                             echo Format::htmlchars(Format::viewableImages($signature)); ?>"
@@ -1156,7 +1156,7 @@ if ($errors['err'] && isset($_POST['a'])) {
                 </td></tr>
                 <tr><td colspan="2">
                     <div class="error"><?php echo $errors['note']; ?></div>
-                    <textarea name="note" id="internal_note" cols="80"
+                    <textarea name="note" id="internal_note"
                         placeholder="<?php echo __('Note details'); ?>"
                         rows="9" wrap="soft"
                         class="<?php if ($cfg->isRichTextEnabled()) echo 'richtext';
